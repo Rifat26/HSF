@@ -2,7 +2,7 @@
 @yield('meta')
 <!-- Title Tag  -->
 <title>@yield('title')</title>
-<!-- Favicon -->
+{{-- <!-- Favicon -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <!-- Web Font -->
 <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
@@ -55,8 +55,26 @@
     left: 100%;
     margin-top: 0px;
     margin-left: 0px;
-    }
+    } 
 
     /*
-</style>
+</style>--}}
+
+
+{{-- <link rel="icon" type="image/png" href="{{asset('assets/images/fav.png')}}"> --}}
+<link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href='{{asset('assets/vendor/unicons-2.0.1/css/unicons.css')}}' rel='stylesheet'>
+<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/night-mode.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/step-wizard.css')}}" rel="stylesheet">
+
+<link href="{{asset('assets/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/OwlCarousel/assets/owl.theme.default.min.css')}}" rel="stylesheet">
+<link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{asset('assets/vendor/semantic/semantic.min.css')}}">
 @stack('styles')
