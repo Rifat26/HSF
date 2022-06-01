@@ -1,7 +1,8 @@
 <!-- Meta Tag -->
 @yield('meta')
 <!-- Title Tag  -->
-<title>@yield('title')</title>
+{{-- <title>@yield('title')</title> --}}
+<title>Home Food Service</title>
 {{-- <!-- Favicon -->
 <link rel="icon" type="image/png" href="images/favicon.png">
 <!-- Web Font -->

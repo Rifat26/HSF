@@ -20,531 +20,575 @@
         </div>
     </div>
     <!-- End Breadcrumbs -->
-            
-    <!-- Start Checkout -->
-    <section class="shop checkout section">
-        <div class="container">
-                <form class="form" method="POST" action="{{route('cart.order')}}">
-                    @csrf
-                    <div class="row"> 
 
-                        <div class="col-lg-8 col-12">
-                            <div class="checkout-form">
-                                <h2>Make Your Checkout Here</h2>
-                                <p>Please register in order to checkout more quickly</p>
-                                <!-- Form -->
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>First Name<span>*</span></label>
-                                            <input type="text" name="first_name" placeholder="" value="{{old('first_name')}}" value="{{old('first_name')}}">
-                                            @error('first_name')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Last Name<span>*</span></label>
-                                            <input type="text" name="last_name" placeholder="" value="{{old('lat_name')}}">
-                                            @error('last_name')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Email Address<span>*</span></label>
-                                            <input type="email" name="email" placeholder="" value="{{old('email')}}">
-                                            @error('email')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Phone Number <span>*</span></label>
-                                            <input type="number" name="phone" placeholder="" required value="{{old('phone')}}">
-                                            @error('phone')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Country<span>*</span></label>
-                                            <select name="country" id="country">
-                                                <option value="AF">Afghanistan</option>
-                                                <option value="AX">Åland Islands</option>
-                                                <option value="AL">Albania</option>
-                                                <option value="DZ">Algeria</option>
-                                                <option value="AS">American Samoa</option>
-                                                <option value="AD">Andorra</option>
-                                                <option value="AO">Angola</option>
-                                                <option value="AI">Anguilla</option>
-                                                <option value="AQ">Antarctica</option>
-                                                <option value="AG">Antigua and Barbuda</option>
-                                                <option value="AR">Argentina</option>
-                                                <option value="AM">Armenia</option>
-                                                <option value="AW">Aruba</option>
-                                                <option value="AU">Australia</option>
-                                                <option value="AT">Austria</option>
-                                                <option value="AZ">Azerbaijan</option>
-                                                <option value="BS">Bahamas</option>
-                                                <option value="BH">Bahrain</option>
-                                                <option value="BD">Bangladesh</option>
-                                                <option value="BB">Barbados</option>
-                                                <option value="BY">Belarus</option>
-                                                <option value="BE">Belgium</option>
-                                                <option value="BZ">Belize</option>
-                                                <option value="BJ">Benin</option>
-                                                <option value="BM">Bermuda</option>
-                                                <option value="BT">Bhutan</option>
-                                                <option value="BO">Bolivia</option>
-                                                <option value="BA">Bosnia and Herzegovina</option>
-                                                <option value="BW">Botswana</option>
-                                                <option value="BV">Bouvet Island</option>
-                                                <option value="BR">Brazil</option>
-                                                <option value="IO">British Indian Ocean Territory</option>
-                                                <option value="VG">British Virgin Islands</option>
-                                                <option value="BN">Brunei</option>
-                                                <option value="BG">Bulgaria</option>
-                                                <option value="BF">Burkina Faso</option>
-                                                <option value="BI">Burundi</option>
-                                                <option value="KH">Cambodia</option>
-                                                <option value="CM">Cameroon</option>
-                                                <option value="CA">Canada</option>
-                                                <option value="CV">Cape Verde</option>
-                                                <option value="KY">Cayman Islands</option>
-                                                <option value="CF">Central African Republic</option>
-                                                <option value="TD">Chad</option>
-                                                <option value="CL">Chile</option>
-                                                <option value="CN">China</option>
-                                                <option value="CX">Christmas Island</option>
-                                                <option value="CC">Cocos [Keeling] Islands</option>
-                                                <option value="CO">Colombia</option>
-                                                <option value="KM">Comoros</option>
-                                                <option value="CG">Congo - Brazzaville</option>
-                                                <option value="CD">Congo - Kinshasa</option>
-                                                <option value="CK">Cook Islands</option>
-                                                <option value="CR">Costa Rica</option>
-                                                <option value="CI">Côte d’Ivoire</option>
-                                                <option value="HR">Croatia</option>
-                                                <option value="CU">Cuba</option>
-                                                <option value="CY">Cyprus</option>
-                                                <option value="CZ">Czech Republic</option>
-                                                <option value="DK">Denmark</option>
-                                                <option value="DJ">Djibouti</option>
-                                                <option value="DM">Dominica</option>
-                                                <option value="DO">Dominican Republic</option>
-                                                <option value="EC">Ecuador</option>
-                                                <option value="EG">Egypt</option>
-                                                <option value="SV">El Salvador</option>
-                                                <option value="GQ">Equatorial Guinea</option>
-                                                <option value="ER">Eritrea</option>
-                                                <option value="EE">Estonia</option>
-                                                <option value="ET">Ethiopia</option>
-                                                <option value="FK">Falkland Islands</option>
-                                                <option value="FO">Faroe Islands</option>
-                                                <option value="FJ">Fiji</option>
-                                                <option value="FI">Finland</option>
-                                                <option value="FR">France</option>
-                                                <option value="GF">French Guiana</option>
-                                                <option value="PF">French Polynesia</option>
-                                                <option value="TF">French Southern Territories</option>
-                                                <option value="GA">Gabon</option>
-                                                <option value="GM">Gambia</option>
-                                                <option value="GE">Georgia</option>
-                                                <option value="DE">Germany</option>
-                                                <option value="GH">Ghana</option>
-                                                <option value="GI">Gibraltar</option>
-                                                <option value="GR">Greece</option>
-                                                <option value="GL">Greenland</option>
-                                                <option value="GD">Grenada</option>
-                                                <option value="GP">Guadeloupe</option>
-                                                <option value="GU">Guam</option>
-                                                <option value="GT">Guatemala</option>
-                                                <option value="GG">Guernsey</option>
-                                                <option value="GN">Guinea</option>
-                                                <option value="GW">Guinea-Bissau</option>
-                                                <option value="GY">Guyana</option>
-                                                <option value="HT">Haiti</option>
-                                                <option value="HM">Heard Island and McDonald Islands</option>
-                                                <option value="HN">Honduras</option>
-                                                <option value="HK">Hong Kong SAR China</option>
-                                                <option value="HU">Hungary</option>
-                                                <option value="IS">Iceland</option>
-                                                <option value="IN">India</option>
-                                                <option value="ID">Indonesia</option>
-                                                <option value="IR">Iran</option>
-                                                <option value="IQ">Iraq</option>
-                                                <option value="IE">Ireland</option>
-                                                <option value="IM">Isle of Man</option>
-                                                <option value="IL">Israel</option>
-                                                <option value="IT">Italy</option>
-                                                <option value="JM">Jamaica</option>
-                                                <option value="JP">Japan</option>
-                                                <option value="JE">Jersey</option>
-                                                <option value="JO">Jordan</option>
-                                                <option value="KZ">Kazakhstan</option>
-                                                <option value="KE">Kenya</option>
-                                                <option value="KI">Kiribati</option>
-                                                <option value="KW">Kuwait</option>
-                                                <option value="KG">Kyrgyzstan</option>
-                                                <option value="LA">Laos</option>
-                                                <option value="LV">Latvia</option>
-                                                <option value="LB">Lebanon</option>
-                                                <option value="LS">Lesotho</option>
-                                                <option value="LR">Liberia</option>
-                                                <option value="LY">Libya</option>
-                                                <option value="LI">Liechtenstein</option>
-                                                <option value="LT">Lithuania</option>
-                                                <option value="LU">Luxembourg</option>
-                                                <option value="MO">Macau SAR China</option>
-                                                <option value="MK">Macedonia</option>
-                                                <option value="MG">Madagascar</option>
-                                                <option value="MW">Malawi</option>
-                                                <option value="MY">Malaysia</option>
-                                                <option value="MV">Maldives</option>
-                                                <option value="ML">Mali</option>
-                                                <option value="MT">Malta</option>
-                                                <option value="MH">Marshall Islands</option>
-                                                <option value="MQ">Martinique</option>
-                                                <option value="MR">Mauritania</option>
-                                                <option value="MU">Mauritius</option>
-                                                <option value="YT">Mayotte</option>
-                                                <option value="MX">Mexico</option>
-                                                <option value="FM">Micronesia</option>
-                                                <option value="MD">Moldova</option>
-                                                <option value="MC">Monaco</option>
-                                                <option value="MN">Mongolia</option>
-                                                <option value="ME">Montenegro</option>
-                                                <option value="MS">Montserrat</option>
-                                                <option value="MA">Morocco</option>
-                                                <option value="MZ">Mozambique</option>
-                                                <option value="MM">Myanmar [Burma]</option>
-                                                <option value="NA">Namibia</option>
-                                                <option value="NR">Nauru</option>
-                                                <option value="NP" selected="selected">Nepal</option>
-                                                <option value="NL">Netherlands</option>
-                                                <option value="AN">Netherlands Antilles</option>
-                                                <option value="NC">New Caledonia</option>
-                                                <option value="NZ">New Zealand</option>
-                                                <option value="NI">Nicaragua</option>
-                                                <option value="NE">Niger</option>
-                                                <option value="NG">Nigeria</option>
-                                                <option value="NU">Niue</option>
-                                                <option value="NF">Norfolk Island</option>
-                                                <option value="MP">Northern Mariana Islands</option>
-                                                <option value="KP">North Korea</option>
-                                                <option value="NO">Norway</option>
-                                                <option value="OM">Oman</option>
-                                                <option value="PK">Pakistan</option>
-                                                <option value="PW">Palau</option>
-                                                <option value="PS">Palestinian Territories</option>
-                                                <option value="PA">Panama</option>
-                                                <option value="PG">Papua New Guinea</option>
-                                                <option value="PY">Paraguay</option>
-                                                <option value="PE">Peru</option>
-                                                <option value="PH">Philippines</option>
-                                                <option value="PN">Pitcairn Islands</option>
-                                                <option value="PL">Poland</option>
-                                                <option value="PT">Portugal</option>
-                                                <option value="PR">Puerto Rico</option>
-                                                <option value="QA">Qatar</option>
-                                                <option value="RE">Réunion</option>
-                                                <option value="RO">Romania</option>
-                                                <option value="RU">Russia</option>
-                                                <option value="RW">Rwanda</option>
-                                                <option value="BL">Saint Barthélemy</option>
-                                                <option value="SH">Saint Helena</option>
-                                                <option value="KN">Saint Kitts and Nevis</option>
-                                                <option value="LC">Saint Lucia</option>
-                                                <option value="MF">Saint Martin</option>
-                                                <option value="PM">Saint Pierre and Miquelon</option>
-                                                <option value="VC">Saint Vincent and the Grenadines</option>
-                                                <option value="WS">Samoa</option>
-                                                <option value="SM">San Marino</option>
-                                                <option value="ST">São Tomé and Príncipe</option>
-                                                <option value="SA">Saudi Arabia</option>
-                                                <option value="SN">Senegal</option>
-                                                <option value="RS">Serbia</option>
-                                                <option value="SC">Seychelles</option>
-                                                <option value="SL">Sierra Leone</option>
-                                                <option value="SG">Singapore</option>
-                                                <option value="SK">Slovakia</option>
-                                                <option value="SI">Slovenia</option>
-                                                <option value="SB">Solomon Islands</option>
-                                                <option value="SO">Somalia</option>
-                                                <option value="ZA">South Africa</option>
-                                                <option value="GS">South Georgia</option>
-                                                <option value="KR">South Korea</option>
-                                                <option value="ES">Spain</option>
-                                                <option value="LK">Sri Lanka</option>
-                                                <option value="SD">Sudan</option>
-                                                <option value="SR">Suriname</option>
-                                                <option value="SJ">Svalbard and Jan Mayen</option>
-                                                <option value="SZ">Swaziland</option>
-                                                <option value="SE">Sweden</option>
-                                                <option value="CH">Switzerland</option>
-                                                <option value="SY">Syria</option>
-                                                <option value="TW">Taiwan</option>
-                                                <option value="TJ">Tajikistan</option>
-                                                <option value="TZ">Tanzania</option>
-                                                <option value="TH">Thailand</option>
-                                                <option value="TL">Timor-Leste</option>
-                                                <option value="TG">Togo</option>
-                                                <option value="TK">Tokelau</option>
-                                                <option value="TO">Tonga</option>
-                                                <option value="TT">Trinidad and Tobago</option>
-                                                <option value="TN">Tunisia</option>
-                                                <option value="TR">Turkey</option>
-                                                <option value="TM">Turkmenistan</option>
-                                                <option value="TC">Turks and Caicos Islands</option>
-                                                <option value="TV">Tuvalu</option>
-                                                <option value="UG">Uganda</option>
-                                                <option value="UA">Ukraine</option>
-                                                <option value="AE">United Arab Emirates</option>
-                                                <option value="Uk">United Kingdom</option>
-                                                <option value="UY">Uruguay</option>
-                                                <option value="UM">U.S. Minor Outlying Islands</option>
-                                                <option value="VI">U.S. Virgin Islands</option>
-                                                <option value="UZ">Uzbekistan</option>
-                                                <option value="VU">Vanuatu</option>
-                                                <option value="VA">Vatican City</option>
-                                                <option value="VE">Venezuela</option>
-                                                <option value="VN">Vietnam</option>
-                                                <option value="WF">Wallis and Futuna</option>
-                                                <option value="EH">Western Sahara</option>
-                                                <option value="YE">Yemen</option>
-                                                <option value="ZM">Zambia</option>
-                                                <option value="ZW">Zimbabwe</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Address Line 1<span>*</span></label>
-                                            <input type="text" name="address1" placeholder="" value="{{old('address1')}}">
-                                            @error('address1')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Address Line 2</label>
-                                            <input type="text" name="address2" placeholder="" value="{{old('address2')}}">
-                                            @error('address2')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label>Postal Code</label>
-                                            <input type="text" name="post_code" placeholder="" value="{{old('post_code')}}">
-                                            @error('post_code')
-                                                <span class='text-danger'>{{$message}}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <!--/ End Form -->
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="order-details">
-                                <!-- Order Widget -->
-                                <div class="single-widget">
-                                    <h2>CART  TOTALS</h2>
-                                    <div class="content">
-                                        <ul>
-										    <li class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal<span>${{number_format(Helper::totalCartPrice(),2)}}</span></li>
-                                            <li class="shipping">
-                                                Shipping Cost
-                                                @if(count(Helper::shipping())>0 && Helper::cartCount()>0)
-                                                    <select name="shipping" class="nice-select">
-                                                        <option value="">Select your address</option>
-                                                        @foreach(Helper::shipping() as $shipping)
-                                                        <option value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">{{$shipping->type}}: ${{$shipping->price}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                @else 
-                                                    <span>Free</span>
-                                                @endif
-                                            </li>
-                                            
-                                            @if(session('coupon'))
-                                            <li class="coupon_price" data-price="{{session('coupon')['value']}}">You Save<span>${{number_format(session('coupon')['value'],2)}}</span></li>
-                                            @endif
-                                            @php
-                                                $total_amount=Helper::totalCartPrice();
-                                                if(session('coupon')){
-                                                    $total_amount=$total_amount-session('coupon')['value'];
-                                                }
-                                            @endphp
-                                            @if(session('coupon'))
-                                                <li class="last"  id="order_total_price">Total<span>${{number_format($total_amount,2)}}</span></li>
-                                            @else
-                                                <li class="last"  id="order_total_price">Total<span>${{number_format($total_amount,2)}}</span></li>
-                                            @endif
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--/ End Order Widget -->
-                                <!-- Order Widget -->
-                                <div class="single-widget">
-                                    <h2>Payments</h2>
-                                    <div class="content">
-                                        <div class="checkbox">
-                                            {{-- <label class="checkbox-inline" for="1"><input name="updates" id="1" type="checkbox"> Check Payments</label> --}}
-                                            <form-group>
-                                                <input name="payment_method"  type="radio" value="cod"> <label> Cash On Delivery</label><br>
-                                                <input name="payment_method"  type="radio" value="paypal"> <label> PayPal</label> 
-                                            </form-group>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/ End Order Widget -->
-                                <!-- Payment Method Widget -->
-                                <div class="single-widget payement">
-                                    <div class="content">
-                                        <img src="{{('backend/img/payment-method.png')}}" alt="#">
-                                    </div>
-                                </div>
-                                <!--/ End Payment Method Widget -->
-                                <!-- Button Widget -->
-                                <div class="single-widget get-button">
-                                    <div class="content">
-                                        <div class="button">
-                                            <button type="submit" class="btn">proceed to checkout</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/ End Button Widget -->
-                            </div>
-                        </div>
-                    </div>
-                </form>
-        </div>
-    </section>
-    <!--/ End Checkout -->
-    
-    <!-- Start Shop Services Area  -->
-    <section class="shop-services section home">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="ti-rocket"></i>
-                        <h4>Free shiping</h4>
-                        <p>Orders over $100</p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="ti-reload"></i>
-                        <h4>Free Return</h4>
-                        <p>Within 30 days returns</p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="ti-lock"></i>
-                        <h4>Sucure Payment</h4>
-                        <p>100% secure payment</p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <!-- Start Single Service -->
-                    <div class="single-service">
-                        <i class="ti-tag"></i>
-                        <h4>Best Peice</h4>
-                        <p>Guaranteed price</p>
-                    </div>
-                    <!-- End Single Service -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Shop Services -->
-    
-    <!-- Start Shop Newsletter  -->
-    <section class="shop-newsletter section">
-        <div class="container">
-            <div class="inner-top">
+
+
+    <div class="wrapper">
+        <div class="gambo-Breadcrumb">
+            <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-12">
-                        <!-- Start Newsletter Inner -->
-                        <div class="inner">
-                            <h4>Newsletter</h4>
-                            <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
-                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
-                                <button class="btn">Subscribe</button>
-                            </form>
-                        </div>
-                        <!-- End Newsletter Inner -->
+                    <div class="col-md-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- End Shop Newsletter -->
+        <div class="all-product-grid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <div id="checkout_wizard" class="checkout accordion left-chck145">
+                            {{-- <div class="checkout-step">
+                                <div class="checkout-card" id="headingOne">
+                                    <span class="checkout-step-number">1</span>
+                                    <h4 class="checkout-step-title">
+                                        <button class="wizard-btn" type="button" data-toggle="collapse"
+                                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Phone Number Verification</button>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="collapse in show" data-parent="#checkout_wizard">
+                                    <div class="checkout-step-body">
+                                        <p>We need your phone number so we can inform you about any delay or problem.
+                                        </p>
+                                        <p class="phn145">4 digits code send your phone <span>+918437176189</span><a
+                                                class="edit-no-btn hover-btn" data-toggle="collapse"
+                                                href="#edit-number">Edit</a></p>
+                                        <div class="collapse" id="edit-number">
+                                            <div class="row">
+                                                <div class="col-lg-8">
+                                                    <div class="checkout-login">
+                                                        <form>
+                                                            <div class="login-phone">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Phone Number">
+                                                            </div>
+                                                            <a class="chck-btn hover-btn" role="button"
+                                                                data-toggle="collapse" href="#otp-verifaction">Send
+                                                                Code</a>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="otp-verifaction">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group mb-0">
+                                                        <label class="control-label">Enter Code</label>
+                                                        <ul class="code-alrt-inputs">
+                                                            <li>
+                                                                <input id="code[1]" name="number" type="text"
+                                                                    placeholder="" class="form-control input-md"
+                                                                    required="">
+                                                            </li>
+                                                            <li>
+                                                                <input id="code[2]" name="number" type="text"
+                                                                    placeholder="" class="form-control input-md"
+                                                                    required="">
+                                                            </li>
+                                                            <li>
+                                                                <input id="code[3]" name="number" type="text"
+                                                                    placeholder="" class="form-control input-md"
+                                                                    required="">
+                                                            </li>
+                                                            <li>
+                                                                <input id="code[4]" name="number" type="text"
+                                                                    placeholder="" class="form-control input-md"
+                                                                    required="">
+                                                            </li>
+                                                            <li>
+                                                                <a class="collapsed chck-btn hover-btn" role="button"
+                                                                    data-toggle="collapse"
+                                                                    data-parent="#checkout_wizard"
+                                                                    href="#collapseTwo">Next</a>
+                                                            </li>
+                                                        </ul>
+                                                        <a href="#" class="resend-link">Resend Code</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="checkout-step">
+                                <div class="checkout-card" id="headingTwo">
+                                    <span class="checkout-step-number">1</span>
+                                    <h4 class="checkout-step-title">
+                                        <button class="wizard-btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo"> Delivery Address</button>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                    data-parent="#checkout_wizard">
+                                    <div class="checkout-step-body">
+                                        <div class="checout-address-step">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <form class="form" method="POST" action="{{route('cart.order')}}">
+                                                    @csrf
+                                                        {{-- <div class="form-group">
+                                                            <div class="product-radio">
+                                                                <ul class="product-now">
+                                                                    <li>
+                                                                        <input type="radio" id="ad1" name="address1"
+                                                                            checked>
+                                                                        <label for="ad1">Home</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="radio" id="ad2" name="address1">
+                                                                        <label for="ad2">Office</label>
+                                                                    </li>
+                                                                    <li>
+                                                                        <input type="radio" id="ad3" name="address1">
+                                                                        <label for="ad3">Other</label>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div> --}}
+                                                        <div class="address-fieldset">
+                                                            <div class="row">
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">First Name*</label>
+                                                                        <input id="name" type="text" name="first_name" placeholder="First Name" class="form-control input-md" value="{{old('first_name')}}">
+                                                                        @error('first_name')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Last Name*</label>
+                                                                        <input id="name" type="text" name="last_name" placeholder="Last Name" class="form-control input-md" value="{{old('lat_name')}}" required="">
+                                                                        @error('last_name')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Email*</label>
+                                                                        <input id="email" type="email" name="email" placeholder="Email" class="form-control input-md" value="{{old('email')}}">
+                                                                        @error('email')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Phone Number*</label>
+                                                                        <input id="phone" type="number" name="phone" placeholder="Phone Number" class="form-control input-md" required value="{{old('phone')}}">
+                                                                        @error('phone')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                {{-- <div class="col-lg-12 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Flat / House /
+                                                                            Office No.*</label>
+                                                                        <input id="flat" name="flat" type="text"
+                                                                            placeholder="Address"
+                                                                            class="form-control input-md" required="">
+                                                                    </div>
+                                                                </div> --}}
+
+                                                                <div class="col-lg-12 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Locality*</label>
+                                                                        <input name="country" id="country" type="text"
+                                                                            placeholder="Bangladesh"
+                                                                            class="form-control input-md" value="BD">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Address Line 1*</label>
+                                                                        <input id="street" type="text" name="address1" placeholder="Address Line 1" class="form-control input-md" value="{{old('address1')}}">
+                                                                        @error('address1')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Address Line 2*</label>
+                                                                        <input id="street" type="text" name="address2" placeholder="Address Line 2" class="form-control input-md" value="{{old('address2')}}">
+                                                                        @error('address2')
+                                                                            <span class='text-danger'>{{$message}}</span>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label">Postal code*</label>
+                                                                        <input id="pincode" name="post_code" type="text"
+                                                                            placeholder="postal code"
+                                                                            class="form-control input-md" value="{{old('post_code')}}">
+                                                                            @error('post_code')
+                                                                                <span class='text-danger'>{{$message}}</span>
+                                                                            @enderror
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="col-lg-12 col-md-12">
+                                                                    <div class="form-group">
+                                                                        <div class="address-btns">
+                                                                            {{-- <button class="save-btn14 hover-btn">Save</button> --}}
+                                                                            <a class="collapsed ml-auto next-btn16 hover-btn"
+                                                                                role="button" data-toggle="collapse"
+                                                                                data-parent="#checkout_wizard"
+                                                                                href="#collapseFour"> Next </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="checkout-step">
+                                <div class="checkout-card" id="headingThree">
+                                    <span class="checkout-step-number">2</span>
+                                    <h4 class="checkout-step-title">
+                                        <button class="wizard-btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree"> Delivery Time & Date </button>
+                                    </h4>
+                                </div>
+                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                    data-parent="#checkout_wizard">
+                                    <div class="checkout-step-body">
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Date and Time*</label>
+                                                    <div class="date-slider-group">
+                                                        <div class="owl-carousel date-slider owl-theme">
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd1" name="address1"
+                                                                        checked="">
+                                                                    <label for="dd1">Today</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd2" name="address1">
+                                                                    <label for="dd2">Tomorrow</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd3" name="address1">
+                                                                    <label for="dd3">10 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd4" name="address1">
+                                                                    <label for="dd4">11 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd5" name="address1">
+                                                                    <label for="dd5">12 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd6" name="address1">
+                                                                    <label for="dd6">13 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd7" name="address1">
+                                                                    <label for="dd7">14 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="date-now">
+                                                                    <input type="radio" id="dd8" name="address1">
+                                                                    <label for="dd8">15 May 2020</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="time-radio">
+                                                        <div class="ui form">
+                                                            <div class="grouped fields">
+                                                                <div class="field">
+                                                                    <div class="ui radio checkbox chck-rdio">
+                                                                        <input type="radio" name="fruit" checked=""
+                                                                            tabindex="0" class="hidden">
+                                                                        <label>8.00AM - 10.00AM</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <div class="ui radio checkbox chck-rdio">
+                                                                        <input type="radio" name="fruit" tabindex="0"
+                                                                            class="hidden">
+                                                                        <label>10.00AM - 12.00PM</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <div class="ui radio checkbox chck-rdio">
+                                                                        <input type="radio" name="fruit" tabindex="0"
+                                                                            class="hidden">
+                                                                        <label>12.00PM - 2.00PM</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <div class="ui radio checkbox chck-rdio">
+                                                                        <input type="radio" name="fruit" tabindex="0"
+                                                                            class="hidden">
+                                                                        <label>2.00PM - 4.00PM</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <div class="ui radio checkbox chck-rdio">
+                                                                        <input type="radio" name="fruit" tabindex="0"
+                                                                            class="hidden">
+                                                                        <label>4.00PM - 6.00PM</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <a class="collapsed next-btn16 hover-btn" role="button" data-toggle="collapse"
+                                            href="#collapseFour"> Proccess to payment </a>
+                                    </div>
+                                </div> 
+                            </div> --}}
+                            <div class="checkout-step">
+                                <div class="checkout-card" id="headingFour">
+                                    <span class="checkout-step-number">2</span>
+                                    <h4 class="checkout-step-title">
+                                        <button class="wizard-btn collapsed" type="button" data-toggle="collapse"
+                                            data-target="#collapseFour" aria-expanded="false"
+                                            aria-controls="collapseFour">Payment</button>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                    data-parent="#checkout_wizard">
+                                    <div class="checkout-step-body">
+                                        <div class="payment_method-checkout">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="rpt100">
+                                                        <ul class="radio--group-inline-container_1">
+                                                            <li>
+                                                                <div class="radio-item_1">
+                                                                    <input id="cashondelivery1" value="cashondelivery"
+                                                                        name="paymentmethod" type="radio"
+                                                                        data-minimum="50.0">
+                                                                    <label for="cashondelivery1" class="radio-label_1" name="payment_method"  type="radio" value="cod">Cash on Delivery</label>
+                                                                </div>
+                                                            </li>
+                                                            {{-- <li>
+                                                                <div class="radio-item_1">
+                                                                    <input id="card1" value="card" name="paymentmethod"
+                                                                        type="radio" data-minimum="50.0">
+                                                                    <label for="card1" class="radio-label_1">Credit /
+                                                                        Debit Card</label>
+                                                                </div>
+                                                            </li> --}}
+                                                        </ul>
+                                                    </div>
+                                                    <div class="form-group return-departure-dts"
+                                                        data-method="cashondelivery">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="pymnt_title">
+                                                                    <h4>Cash on Delivery</h4>
+                                                                    <p>Thanks so much for your order! I hope you enjoy your new purchase! </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- <div class="form-group return-departure-dts" data-method="card">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="pymnt_title mb-4">
+                                                                    <h4>Credit / Debit Card</h4>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group mt-1">
+                                                                    <label class="control-label">Holder Name*</label>
+                                                                    <div class="ui search focus">
+                                                                        <div class="ui left icon input swdh11 swdh19">
+                                                                            <input class="prompt srch_explore"
+                                                                                type="text" name="holdername" value=""
+                                                                                id="holder[name]" required=""
+                                                                                maxlength="64"
+                                                                                placeholder="Holder Name">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group mt-1">
+                                                                    <label class="control-label">Card Number*</label>
+                                                                    <div class="ui search focus">
+                                                                        <div class="ui left icon input swdh11 swdh19">
+                                                                            <input class="prompt srch_explore"
+                                                                                type="text" name="cardnumber" value=""
+                                                                                id="card[number]" required=""
+                                                                                maxlength="64"
+                                                                                placeholder="Card Number">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group mt-1">
+                                                                    <label class="control-label">Expiration
+                                                                        Month*</label>
+                                                                    <select
+                                                                        class="ui fluid search dropdown form-dropdown"
+                                                                        name="card[expire-month]">
+                                                                        <option value="">Month</option>
+                                                                        <option value="1">January</option>
+                                                                        <option value="2">February</option>
+                                                                        <option value="3">March</option>
+                                                                        <option value="4">April</option>
+                                                                        <option value="5">May</option>
+                                                                        <option value="6">June</option>
+                                                                        <option value="7">July</option>
+                                                                        <option value="8">August</option>
+                                                                        <option value="9">September</option>
+                                                                        <option value="10">October</option>
+                                                                        <option value="11">November</option>
+                                                                        <option value="12">December</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group mt-1">
+                                                                    <label class="control-label">Expiration
+                                                                        Year*</label>
+                                                                    <div class="ui search focus">
+                                                                        <div class="ui left icon input swdh11 swdh19">
+                                                                            <input class="prompt srch_explore"
+                                                                                type="text" name="card[expire-year]"
+                                                                                maxlength="4" placeholder="Year">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <div class="form-group mt-1">
+                                                                    <label class="control-label">CVV*</label>
+                                                                    <div class="ui search focus">
+                                                                        <div class="ui left icon input swdh11 swdh19">
+                                                                            <input class="prompt srch_explore"
+                                                                                name="card[cvc]" maxlength="3"
+                                                                                placeholder="CVV">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div> --}}
+                                                    <div class="single-widget get-button">
+                                                    <a href="#" type="submit" class="next-btn16 hover-btn">Place Order</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="pdpt-bg mt-0">
+                            <div class="pdpt-title">
+                                <h4>Order Summary</h4>
+                            </div>
+                            {{-- <div class="right-cart-dt-body">
+                                <div class="cart-item border_radius">
+                                    <div class="cart-product-img">
+                                        <img src="assets/images/product/img-11.jpg" alt="">
+                                        <div class="offer-badge">4% OFF</div>
+                                    </div>
+                                    <div class="cart-text">
+                                        <h4>Product Title Here</h4>
+                                        <div class="cart-item-price">$15 <span>$18</span></div>
+                                        <button type="button" class="cart-close-btn"><i
+                                                class="uil uil-multiply"></i></button>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="total-checkout-group">
+                                <div class="cart-total-dil">
+                                    
+                                    <h4 class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal</h4>
+                                    <span>${{number_format(Helper::totalCartPrice(),2)}}</span>
+                                </div>
+                                <div class="cart-total-dil pt-3">
+                                    <h4>Delivery Charges</h4>
+                                    <span>FREE</span>
+                                </div>
+                            </div>
+                            <div class="cart-total-dil saving-total ">
+                                @if(session('coupon'))
+                                    <h4 class="coupon_price" data-price="{{session('coupon')['value']}}">You Save</h4>
+                                    <span>${{number_format(session('coupon')['value'],2)}}</span>
+                                    @endif
+                            </div>
+                            <div class="main-total-cart">
+                                @php
+                                    $total_amount=Helper::totalCartPrice();
+                                    if(session('coupon')){
+                                        $total_amount=$total_amount-session('coupon')['value'];
+                                    }
+                                @endphp
+                                @if(session('coupon'))
+                                    <h2 class="last"  id="order_total_price">Total</h2>
+                                    <span>${{number_format($total_amount,2)}}</span>
+                                @else
+                                    <h2 class="last"  id="order_total_price">Total</h2>
+                                    <span>${{number_format($total_amount,2)}}</span>
+                                @endif
+                            </div>
+                            <div class="payment-secure">
+                                <i class="uil uil-padlock"></i>Secure checkout
+                            </div>
+                        </div>
+                        {{-- <a href="#" class="promo-link45">Have a promocode?</a>  --}}
+                        <div class="checkout-safety-alerts">
+                            <p><i class="uil uil-sync"></i>100% Replacement Guarantee</p>
+                            <p><i class="uil uil-check-square"></i>100% Genuine Products</p>
+                            <p><i class="uil uil-shield-check"></i>Secure Payments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 @endsection
-@push('styles')
-	<style>
-		li.shipping{
-			display: inline-flex;
-			width: 100%;
-			font-size: 14px;
-		}
-		li.shipping .input-group-icon {
-			width: 100%;
-			margin-left: 10px;
-		}
-		.input-group-icon .icon {
-			position: absolute;
-			left: 20px;
-			top: 0;
-			line-height: 40px;
-			z-index: 3;
-		}
-		.form-select {
-			height: 30px;
-			width: 100%;
-		}
-		.form-select .nice-select {
-			border: none;
-			border-radius: 0px;
-			height: 40px;
-			background: #f6f6f6 !important;
-			padding-left: 45px;
-			padding-right: 40px;
-			width: 100%;
-		}
-		.list li{
-			margin-bottom:0 !important;
-		}
-		.list li:hover{
-			background:#F7941D !important;
-			color:white !important;
-		}
-		.form-select .nice-select::after {
-			top: 14px;
-		}
-	</style>
-@endpush
-@push('scripts')
+
+ @push('scripts')
 	<script src="{{asset('frontend/js/nice-select/js/jquery.nice-select.min.js')}}"></script>
 	<script src="{{ asset('frontend/js/select2/js/select2.min.js') }}"></script>
 	<script>
@@ -579,4 +623,4 @@
 
 	</script>
 
-@endpush
+ @endpush 
