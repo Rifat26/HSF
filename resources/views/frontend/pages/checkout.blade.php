@@ -5,7 +5,7 @@
 @section('main-content')
 
     <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
+    <!-- <div class="breadcrumbs">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Breadcrumbs -->
 
 
@@ -30,7 +30,7 @@
                     <div class="col-md-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                             </ol>
                         </nav>
@@ -133,7 +133,7 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <form class="form" method="POST" action="{{route('cart.order')}}">
-                                                    @csrf
+                                                        @csrf
                                                         {{-- <div class="form-group">
                                                             <div class="product-radio">
                                                                 <ul class="product-now">
@@ -252,7 +252,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -509,7 +508,7 @@
                                                         </div>
                                                     </div> --}}
                                                     <div class="single-widget get-button">
-                                                    <a href="#" type="submit" class="next-btn16 hover-btn">Place Order</a>
+                                                        <button type="submit" class="btn next-btn16 hover-btn">Place Order</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -517,6 +516,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-5">
@@ -540,7 +540,6 @@
                             </div> --}}
                             <div class="total-checkout-group">
                                 <div class="cart-total-dil">
-                                    
                                     <h4 class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal</h4>
                                     <span>${{number_format(Helper::totalCartPrice(),2)}}</span>
                                 </div>

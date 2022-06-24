@@ -42,7 +42,18 @@
 					<div class="product-dt-view">
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
-								<div id="sync1" class="owl-carousel owl-theme">
+								<div id="sync1" class="">
+									@php 
+										$photo=explode(',',$product_detail->photo);
+										// dd($photo);
+									@endphp
+									@foreach($photo as $data)
+										<div class="item" data-thumb="{{$data}}" rel="adjustX:10, adjustY:">
+											<img src="{{$data}}" alt="{{$data}}" height="450" width="390">
+										</div>
+									@endforeach
+								</div>
+								<!-- <div id="sync2" class="owl-carousel owl-theme">
 									@php 
 										$photo=explode(',',$product_detail->photo);
 										// dd($photo);
@@ -52,7 +63,7 @@
 											<img src="{{$data}}" alt="{{$data}}">
 										</div>
 									@endforeach
-									{{-- <div class="item">
+									<- -- <div class="item">
 										<img src="images/product/big-2.jpg" alt="">
 									</div>
 									<div class="item">
@@ -60,36 +71,16 @@
 									</div>
 									<div class="item">
 										<img src="images/product/big-4.jpg" alt="">
-									</div> --}}
-								</div>
-								<div id="sync2" class="owl-carousel owl-theme">
-									@php 
-										$photo=explode(',',$product_detail->photo);
-										// dd($photo);
-									@endphp
-									@foreach($photo as $data)
-										<div class="item" data-thumb="{{$data}}" rel="adjustX:10, adjustY:">
-											<img src="{{$data}}" alt="{{$data}}">
-										</div>
-									@endforeach
-									{{-- <div class="item">
-										<img src="images/product/big-2.jpg" alt="">
-									</div>
-									<div class="item">
-										<img src="images/product/big-3.jpg" alt="">
-									</div>
-									<div class="item">
-										<img src="images/product/big-4.jpg" alt="">
-									</div> --}}
-								</div>
+									</div> -- ->
+								</div> -->
 							</div>
 							<div class="col-lg-8 col-md-8">
 								<div class="product-dt-right">
 									<h2>{{$product_detail->title}}</h2>
-									{{-- <div class="no-stock">
+									<!-- {{-- <div class="no-stock">
 										<p class="pd-no">Product No.<span>12345</span></p>
 										<p class="stock-qty">Available<span>(Instock)</span></p>
-									</div> --}}
+									</div> --}} -->
 									
 									
 									<p class="pp-descp">{!!($product_detail->summary)!!}</p>
