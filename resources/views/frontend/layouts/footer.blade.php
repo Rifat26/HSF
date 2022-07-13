@@ -4,14 +4,14 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<ul class="call-email-alt">
-						<li><a href="#" class="callemail"><i class="uil uil-dialpad-alt"></i>1800-000-000</a></li>
+						<li><a href="#" class="callemail"><i class="uil uil-dialpad-alt"></i>01787817803</a></li>
 						<li><a href="#" class="callemail"><i class="uil uil-envelope-alt"></i><span
 									class="__cf_email__"
 									data-cfemail="1a73747c755a7d7b777875696f6a7f68777b68717f6e34797577">[email&#160;protected]</span></a>
 						</li>
 					</ul>
 				</div>
-				<div class="col-md-6 col-sm-6">
+				{{-- <div class="col-md-6 col-sm-6">
 					<div class="social-links-footer">
 						<ul>
 							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -22,7 +22,7 @@
 							<li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
 						</ul>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
@@ -52,11 +52,8 @@
 						<h4>Useful Links</h4>
 						<ul>
 							<li><a href="about_us.html">About US</a></li>
-							<li><a href="shop_grid.html">Featured Products</a></li>
-							<li><a href="offers.html">Offers</a></li>
+							<li><a href="shop_grid.html">Products</a></li>
 							<li><a href="our_blog.html">Blog</a></li>
-							<li><a href="faq.html">Faq</a></li>
-							<li><a href="career.html">Careers</a></li>
 							<li><a href="contact_us.html">Contact Us</a></li>
 						</ul>
 					</div>
@@ -65,26 +62,26 @@
 					<div class="second-row-item">
 						<h4>Top Cities</h4>
 						<ul>
-							<li><a href="#">Gurugram</a></li>
-							<li><a href="#">New Delhi</a></li>
-							<li><a href="#">Bangaluru</a></li>
-							<li><a href="#">Mumbai</a></li>
-							<li><a href="#">Hyderabad</a></li>
-							<li><a href="#">Kolkata</a></li>
-							<li><a href="#">Ludhiana</a></li>
-							<li><a href="#">Chandigrah</a></li>
+							<li><a href="#">Dhaka</a></li>
+							<li><a href="#">Chittagong</a></li>
+							<li><a href="#">Shylet</a></li>
+							<li><a href="#">Khulna</a></li>
+							<li><a href="#">Barisal</a></li>
+							<li><a href="#">Rajsahi</a></li>
+							<li><a href="#">Comilla</a></li>
+							<li><a href="#">Tangail</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="second-row-item-app">
+					{{-- <div class="second-row-item-app">
 						<h4>Download App</h4>
 						<ul>
 							<li><a href="#"><img class="download-btn" src="images/download-1.svg" alt=""></a></li>
 							<li><a href="#"><img class="download-btn" src="images/download-2.svg" alt=""></a></li>
 						</ul>
-					</div>
-					<div class="second-row-item-payment">
+					</div> --}}
+					{{-- <div class="second-row-item-payment">
 						<h4>Payment Method</h4>
 						<div class="footer-payments">
 							<ul id="paypal-gateway" class="financial-institutes">
@@ -106,21 +103,13 @@
 								</li>
 							</ul>
 						</div>
-					</div>
-					<div class="second-row-item-payment">
-						<h4>Newsletter</h4>
-						<div class="newsletter-input">
-							<input id="email" name="email" type="text" placeholder="Email Address"
-								class="form-control input-md" required="">
-							<button class="newsletter-btn hover-btn" type="submit"><i
-									class="uil uil-telegram-alt"></i></button>
-						</div>
-					</div>
+					</div> --}}
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="footer-last-row">
+	{{-- <div class="footer-last-row">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -139,7 +128,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 </footer>
  
 	<!-- Jquery -->

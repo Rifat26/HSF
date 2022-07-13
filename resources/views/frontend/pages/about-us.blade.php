@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="about-steps-group white-bg">
+        {{-- <div class="about-steps-group white-bg">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="life-gambo">
             <div class="container">
                 <div class="row">

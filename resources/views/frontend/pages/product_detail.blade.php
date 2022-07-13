@@ -103,7 +103,7 @@
 											</li>
 										</ul>
 										<br>
-										@if($product_detail->size)
+										{{-- @if($product_detail->size)
 										<div class="product-radio">
 											<ul class="product-now">
 												@php 
@@ -116,21 +116,10 @@
 														<label for="p1">{{$size}}</label>
 													</li>
 												@endforeach
-												{{-- <li>
-													<input type="radio" id="p2" name="product1">
-													<label for="p2">1kg</label>
-												</li>
-												<li>
-													<input type="radio" id="p3" name="product1">
-													<label for="p3">2kg</label>
-												</li>
-												<li>
-													<input type="radio" id="p4" name="product1">
-													<label for="p4">3kg</label>
-												</li> --}}
+												
 											</ul>
 										</div>
-										@endif
+										@endif --}}
 										<form action="{{route('single-add-to-cart')}}" method="POST">
 											@csrf
 										<ul class="gty-wish-share">

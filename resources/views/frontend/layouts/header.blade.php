@@ -366,8 +366,8 @@
 
 
 
-                            {{-- <li class="nav-item"><a href="{{route('contact')}}" class="nav-link" title="Contact">Contact
-                                    Us</a></li> --}}
+                            <li class="nav-item"><a href="{{route('contact')}}" class="nav-link" title="Contact">Contact
+                                    Us</a></li>
 
                                     
                         </ul>
