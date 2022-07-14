@@ -126,13 +126,13 @@
 											<li>
 												<div class="qty-product">
 													<div class="quantity buttons_added">
-														<input type="button" value="-" class="minus minus-btn">
+														<input type="button" value="-" class="minus minus-btn" disabled="disabled" data-type="minus" data-field="quant[1]">
 
 														<input type="hidden" name="slug" value="{{$product_detail->slug}}">
 														<input class="input-text qty text" type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1" id="quantity">
 															
 														{{-- <input type="number" step="1" name="quantity" value="1"	class="input-text qty text"> --}}
-														<input type="button" value="+" class="plus plus-btn">
+														<input type="button" value="+" class="plus plus-btn" data-type="plus" data-field="quant[1]">
 													</div>
 												</div>
 											</li>
@@ -186,7 +186,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-12">
+				{{-- <div class="col-lg-4 col-md-12">
 					<div class="pdpt-bg">
 						<div class="pdpt-title">
 							<h4>More Like This</h4>
@@ -299,7 +299,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 				<div class="col-lg-8 col-md-12">
 					<div class="pdpt-bg">
 						<div class="pdpt-title">
@@ -357,13 +357,13 @@
 <!-- Start Most Popular -->
 <div class="product-area most-popular related-product section">
 <div class="container">
-	<div class="row">
+	{{-- <div class="row">
 		<div class="col-12">
 			<div class="section-title">
 				<h2>Related Products</h2>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 	<div class="row">
 		{{-- {{$product_detail->rel_prods}} --}}
 		<div class="col-12">
