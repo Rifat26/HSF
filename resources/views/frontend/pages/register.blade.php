@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-    @section('title','E-SHOP || Register Page')
+    @section('title','Home Food Service || Register Page')
 
         @section('main-content')
                         {{-- <!-- Breadcrumbs -->
@@ -176,9 +176,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="copyright-text text-center mt-3">
+                                    {{-- <div class="copyright-text text-center mt-3">
                                         <i class="uil uil-copyright"></i>Copyright 2022 <b>MRR</b> . All rights reserved
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>

@@ -155,9 +155,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="copyright-text text-center mt-3">
+                                {{-- <div class="copyright-text text-center mt-3">
                                     <i class="uil uil-copyright"></i>Copyright 2022 <b>MRR</b> . All rights reserved
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
