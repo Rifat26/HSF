@@ -63,24 +63,13 @@
 											<img src="{{$data}}" alt="{{$data}}">
 										</div>
 									@endforeach
-									<- -- <div class="item">
-										<img src="images/product/big-2.jpg" alt="">
-									</div>
-									<div class="item">
-										<img src="images/product/big-3.jpg" alt="">
-									</div>
-									<div class="item">
-										<img src="images/product/big-4.jpg" alt="">
-									</div> -- ->
+									
 								</div> -->
 							</div>
 							<div class="col-lg-8 col-md-8">
 								<div class="product-dt-right">
 									<h2>{{$product_detail->title}}</h2>
-									<!-- {{-- <div class="no-stock">
-										<p class="pd-no">Product No.<span>12345</span></p>
-										<p class="stock-qty">Available<span>(Instock)</span></p>
-									</div> --}} -->
+									
 									
 									
 									<p class="pp-descp">{!!($product_detail->summary)!!}</p>
@@ -93,12 +82,12 @@
                                                 @endphp
 
 												<div class="main-price color-discount"> Discount Price
-													<span>${{number_format($after_discount,2)}}</span>
+													<span>&#2547;{{number_format($after_discount,2)}}</span>
 												</div>
 											</li>
 											<li>
-												<div class="main-price mrp-price">MRP Price
-													<span>${{number_format($product_detail->price,2)}}</span>
+												<div class="main-price mrp-price">BDT Price
+													<span>&#2547;{{number_format($product_detail->price,2)}}</span>
 												</div>
 											</li>
 										</ul>
@@ -126,13 +115,13 @@
 											<li>
 												<div class="qty-product">
 													<div class="quantity buttons_added">
-														<input type="button" value="-" class="minus minus-btn" disabled="disabled" data-type="minus" data-field="quant[1]">
+														
 
 														<input type="hidden" name="slug" value="{{$product_detail->slug}}">
 														<input class="input-text qty text" type="text" name="quant[1]" class="input-number"  data-min="1" data-max="1000" value="1" id="quantity">
 															
-														{{-- <input type="number" step="1" name="quantity" value="1"	class="input-text qty text"> --}}
-														<input type="button" value="+" class="plus plus-btn" data-type="plus" data-field="quant[1]">
+														
+														
 													</div>
 												</div>
 											</li>

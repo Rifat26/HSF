@@ -31,8 +31,8 @@
 										<label for="file"><i class="uil uil-camera-plus"></i></label>
 									</div>
 								</div>
-								<h4>Johe Doe</h4>
-								<p>+91999999999<a href="#"><i class="uil uil-edit"></i></a></p>
+								<h4>Rifat</h4>
+								<p>01787817803-<a href="#"><i class="uil uil-edit"></i></a></p>
 								<div class="earn-points"><img src="images/Dollar.svg" alt="">Points : <span>20</span></div>
 							</div>
 						</div>
@@ -75,18 +75,29 @@
 												@if(Helper::getAllProductFromWishlist())
 													@foreach(Helper::getAllProductFromWishlist() as $key=>$wishlist)
 												<div class="cart-item">
+													@php 
+														$photo=explode(',',$wishlist->product['photo']);
+													@endphp
 													<div class="cart-product-img">
-														<img src="{{$photo[0]}}" alt="{{$photo[0]}}" alt="">
+														<img src="{{$photo ?? ''[0]}}" alt="{{$photo ?? ''[0]}}" alt="">
 														
 													</div>
 													<div class="cart-text">
-														<h4>Product Title Here</h4>
+														<h4><a href="{{route('product-detail',$wishlist->product['slug'])}}">{{$wishlist->product['title']}}</a></h4>
 														<div class="cart-item-price"><span>${{$wishlist['amount']}}</span></div>
-														<button type="button" class="cart-close-btn"><i
-																class="uil uil-trash-alt"></i></button>
+														<button type="button" class="cart-close-btn"><i class="uil uil-trash-alt"></i></button>
+														{{-- <td><a href="{{route('add-to-cart',$wishlist->product['slug'])}}" class='btn text-white'>Add To Cart</a></td> --}}
+														{{-- <td class="action" data-title="Remove"><a href="{{route('wishlist-delete',$wishlist->id)}}"><i class="ti-trash remove-icon"></i></a></td> --}}
 													</div>
 												</div>
 												@endforeach
+												@else 
+													<tr>
+														<td class="text-center">
+															There are no any wishlist available. <a href="{{route('product-grids')}}" style="color:blue;">Continue shopping</a>
+
+														</td>
+													</tr>
 												@endif
 												
 											</div>

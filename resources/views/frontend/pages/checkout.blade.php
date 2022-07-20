@@ -545,7 +545,37 @@
                                 </div>
                                 <div class="cart-total-dil pt-3">
                                     <h4>Delivery Charges</h4>
-                                    <span>FREE</span>
+                                    @if(count(Helper::shipping())>0 && Helper::cartCount()>0)
+                                    <div class="select_location">
+                                        <select name="shipping">
+                                            <div class="ui inline dropdown loc-title">
+                                                <div class="text">
+                                                    <option  value="">
+                                                        Select your address
+                                                    </option>
+                                                </div>
+                                                <div class="menu dropdown_loc">
+                                                    @foreach(Helper::shipping() as $shipping)
+                                                    <div class="item channel_item">
+                                                        <option  value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">
+                                                            {{$shipping->type}}: &#2547;{{$shipping->price}}
+                                                        </option>
+                                                        
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </select>
+                                    </div>
+                                        {{-- <select name="shipping" class="nice-select">
+                                            <option value="">Select your address</option>
+                                            @foreach(Helper::shipping() as $shipping)
+                                            <option value="{{$shipping->id}}" class="shippingOption" data-price="{{$shipping->price}}">{{$shipping->type}}: ${{$shipping->price}}</option>
+                                            @endforeach
+                                        </select> --}}
+                                    @else 
+                                        <span>Free</span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="cart-total-dil saving-total ">

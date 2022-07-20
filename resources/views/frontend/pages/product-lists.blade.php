@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','E-SHOP || PRODUCT PAGE')
+@section('title','Home Service Food || PRODUCT PAGE')
 
 @section('main-content')
 	
@@ -23,222 +23,345 @@
 		<form action="{{route('shop.filter')}}" method="POST">
 		@csrf
 			<!-- Product Style 1 -->
-			<section class="product-area shop-sidebar shop-list shop section">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-4 col-12">
-							<div class="shop-sidebar">
-                                <!-- Single Widget -->
-                                <div class="single-widget category">
-                                    <h3 class="title">Categories</h3>
-                                    <ul class="categor-list">
-										@php
-											// $category = new Category();
-											$menu=App\Models\Category::getAllParentWithChild();
-										@endphp
-										@if($menu)
-										<li>
-											@foreach($menu as $cat_info)
-													@if($cat_info->child_cat->count()>0)
-														<li><a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a>
-															<ul>
-																@foreach($cat_info->child_cat as $sub_menu)
-																	<li><a href="{{route('product-sub-cat',[$cat_info->slug,$sub_menu->slug])}}">{{$sub_menu->title}}</a></li>
-																@endforeach
-															</ul>
-														</li>
-													@else
-														<li><a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a></li>
-													@endif
-											@endforeach
-										</li>
-										@endif
-                                        {{-- @foreach(Helper::productCategoryList('products') as $cat)
-                                            @if($cat->is_parent==1)
-												<li><a href="{{route('product-cat',$cat->slug)}}">{{$cat->title}}</a></li>
-											@endif
-                                        @endforeach --}}
-                                    </ul>
-                                </div>
-                                <!--/ End Single Widget -->
-                                <!-- Shop By Price -->
-								<div class="single-widget range">
-									<h3 class="title">Shop by Price</h3>
-									<div class="price-filter">
-										<div class="price-filter-inner">
-											{{-- <div id="slider-range" data-min="10" data-max="2000" data-currency="%"></div>
-												<div class="price_slider_amount">
-												<div class="label-input">
-													<span>Range:</span>
-													<input type="text" id="amount" name="price_range" value='@if(!empty($_GET['price'])) {{$_GET['price']}} @endif' placeholder="Add Your Price"/>
-												</div>
-											</div> --}}
-											@php
-												$max=DB::table('products')->max('price');
-												// dd($max);
-											@endphp
-											<div id="slider-range" data-min="0" data-max="{{$max}}"></div>
-											<div class="product_filter">
-											<button type="submit" class="filter_button">Filter</button>
-											<div class="label-input">
-												<span>Range:</span>
-												<input style="" type="text" id="amount" readonly/>
-												<input type="hidden" name="price_range" id="price_range" value="@if(!empty($_GET['price'])){{$_GET['price']}}@endif"/>
-											</div>
-											</div>
-										</div>
+			<div class="wrapper">
+				
+				<div class="all-product-grid">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="product-top-dt">
+									<div class="product-left-title">
+										<h2>Cetagory</h2>
+										
 									</div>
-									{{-- <ul class="check-box-list">
-										<li>
-											<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
-										</li>
-										<li>
-											<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
-										</li>
-										<li>
-											<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
-										</li>
-									</ul> --}}
+									
 								</div>
-								<!--/ End Shop By Price -->
-                                <!-- Single Widget -->
-                                <div class="single-widget recent-post">
-                                    <h3 class="title">Recent post</h3>
-                                    {{-- {{dd($recent_products)}} --}}
-                                    @foreach($recent_products as $product)
-                                        <!-- Single Post -->
-                                        @php 
-                                            $photo=explode(',',$product->photo);
-                                        @endphp
-                                        <div class="single-post first">
-                                            <div class="image">
-                                                <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
-                                            </div>
-                                            <div class="content">
-                                                <h5><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h5>
-                                                @php
-                                                    $org=($product->price-($product->price*$product->discount)/100);
-                                                @endphp
-                                                <p class="price"><del class="text-muted">${{number_format($product->price,2)}}</del>   ${{number_format($org,2)}}  </p>                                                
-                                            </div>
-                                        </div>
-                                        <!-- End Single Post -->
-                                    @endforeach
-                                </div>
-                                <!--/ End Single Widget -->
-                                <!-- Single Widget -->
-                                <div class="single-widget category">
-                                    <h3 class="title">Brands</h3>
-                                    <ul class="categor-list">
-                                        @php
-                                            $brands=DB::table('brands')->orderBy('title','ASC')->where('status','active')->get();
-                                        @endphp
-                                        @foreach($brands as $brand)
-                                            <li><a href="{{route('product-brand',$brand->slug)}}">{{$brand->title}}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <!--/ End Single Widget -->
-                        	</div>
+							</div>
 						</div>
-						<div class="col-lg-9 col-md-8 col-12">
+						<div class="product-list-view">
 							<div class="row">
-								<div class="col-12">
-									<!-- Shop Top -->
-									<div class="shop-top">
-										<div class="shop-shorter">
-											<div class="single-shorter">
-												<label>Show :</label>
-												<select class="show" name="show" onchange="this.form.submit();">
-													<option value="">Default</option>
-													<option value="9" @if(!empty($_GET['show']) && $_GET['show']=='9') selected @endif>09</option>
-													<option value="15" @if(!empty($_GET['show']) && $_GET['show']=='15') selected @endif>15</option>
-													<option value="21" @if(!empty($_GET['show']) && $_GET['show']=='21') selected @endif>21</option>
-													<option value="30" @if(!empty($_GET['show']) && $_GET['show']=='30') selected @endif>30</option>
-												</select>
-											</div>
-											<div class="single-shorter">
-												<label>Sort By :</label>
-												<select class='sortBy' name='sortBy' onchange="this.form.submit();">
-													<option value="">Default</option>
-													<option value="title" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='title') selected @endif>Name</option>
-													<option value="price" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='price') selected @endif>Price</option>
-													<option value="category" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='category') selected @endif>Category</option>
-													<option value="brand" @if(!empty($_GET['sortBy']) && $_GET['sortBy']=='brand') selected @endif>Brand</option>
-												</select>
+							@if(count($products))
+								@foreach($products as $product)
+									{{-- {{$product}} --}}
+									<div class="col-lg-3 col-md-6">
+										<div class="product-item mb-30">
+											<a href="{{route('product-detail',$product->slug)}}" class="product-img">
+												@php 
+													$photo=explode(',',$product->photo);
+												@endphp
+												<img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+												<div class="product-absolute-options">
+													{{-- <span class="offer-badge-1">6% off</span> --}}
+													<a href="{{route('add-to-wishlist',$product->slug)}}" data-id="{{$product->id}}"><span class="like-icon" title="wishlist"></span></a>
+												</div>
+											</a>
+											<div class="product-text-dt">
+												@php
+													$after_discount=($product->price-($product->price*$product->discount)/100);
+												@endphp
+												<p>Available<span>(In Stock)</span></p>
+												<a href="{{route('product-detail',$product->slug)}}"><h4>{{$product->title}}</h4></a>
+												<div class="product-price">&#2547;{{number_format($after_discount,2)}} <span>&#2547;{{number_format($product->price,2)}}</span></div>
+												<div class="qty-cart">
+													{{-- <div class="quantity buttons_added">
+														<input type="button" value="-" class="minus minus-btn">
+														<input type="number" step="1" name="quantity" value="1"
+															class="input-text qty text">
+														<input type="button" value="+" class="plus plus-btn">
+													</div> --}}
+													<a href="{{route('add-to-cart',$product->slug)}}"><span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span></a>
+												</div>
 											</div>
 										</div>
-										<ul class="view-mode">
-											<li><a href="{{route('product-grids')}}"><i class="fa fa-th-large"></i></a></li>
-											<li class="active"><a href="javascript:void(0)"><i class="fa fa-th-list"></i></a></li>
-										</ul>
 									</div>
-									<!--/ End Shop Top -->
+								@endforeach
+							@endif
+								{{-- <div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-2.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">2% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$10 <span>$13</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-3.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">5% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$5 <span>$8</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-4.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">3% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$15 <span>$20</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-5.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">2% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$9 <span>$10</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-6.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">2% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$7 <span>$8</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-7.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">1% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$6.95 <span>$7</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-11.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">6% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$12 <span>$15</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-12.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">2% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$10 <span>$13</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-13.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">5% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$5 <span>$8</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-14.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">1% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$6.95 <span>$7</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6">
+									<div class="product-item mb-30">
+										<a href="single_product_view.html" class="product-img">
+											<img src="images/product/img-8.jpg" alt="">
+											<div class="product-absolute-options">
+												<span class="offer-badge-1">3% off</span>
+												<span class="like-icon" title="wishlist"></span>
+											</div>
+										</a>
+										<div class="product-text-dt">
+											<p>Available<span>(In Stock)</span></p>
+											<h4>Product Title Here</h4>
+											<div class="product-price">$8 <span>$10</span></div>
+											<div class="qty-cart">
+												<div class="quantity buttons_added">
+													<input type="button" value="-" class="minus minus-btn">
+													<input type="number" step="1" name="quantity" value="1"
+														class="input-text qty text">
+													<input type="button" value="+" class="plus plus-btn">
+												</div>
+												<span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
+											</div>
+										</div>
+									</div>
+								</div> --}}
+								<div class="col-md-12">
+									<div class="more-product-btn">
+										<button class="show-more-btn hover-btn" onclick="window.location.href = '#';">Show
+											More</button>
+									</div>
 								</div>
 							</div>
-							<div class="row">
-								@if(count($products))
-									@foreach($products as $product)
-									 	{{-- {{$product}} --}}
-										<!-- Start Single List -->
-										<div class="col-12">
-											<div class="row">
-												<div class="col-lg-4 col-md-6 col-sm-6">
-													<div class="single-product">
-														<div class="product-img">
-															<a href="{{route('product-detail',$product->slug)}}">
-															@php 
-																$photo=explode(',',$product->photo);
-															@endphp
-															<img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-															<img class="hover-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
-															</a>
-															<div class="button-head">
-																<div class="product-action">
-																	<a data-toggle="modal" data-target="#{{$product->id}}" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-																	<a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-																</div>
-																<div class="product-action-2">
-																	<a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">Add to cart</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-8 col-md-6 col-12">
-													<div class="list-content">
-														<div class="product-content">
-															<div class="product-price">
-																@php
-																	$after_discount=($product->price-($product->price*$product->discount)/100);
-																@endphp
-																<span>${{number_format($after_discount,2)}}</span>
-																<del>${{number_format($product->price,2)}}</del>
-															</div>
-															<h3 class="title"><a href="{{route('product-detail',$product->slug)}}">{{$product->title}}</a></h3>
-														{{-- <p>{!! html_entity_decode($product->summary) !!}</p> --}}
-														</div>
-														<p class="des pt-2">{!! html_entity_decode($product->summary) !!}</p>
-														<a href="javascript:void(0)" class="btn cart" data-id="{{$product->id}}">Buy Now!</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- End Single List -->
-									@endforeach
-								@else
-									<h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
-								@endif
-							</div>
-							 <div class="row">
-                            <div class="col-md-12 justify-content-center d-flex">
-                                {{-- {{$products->appends($_GET)->links()}}  --}}
-                            </div>
-                          </div>
 						</div>
 					</div>
 				</div>
-			</section>
+			</div>
 			<!--/ End Product Style 1  -->	
 		</form>
 		<!-- Modal -->

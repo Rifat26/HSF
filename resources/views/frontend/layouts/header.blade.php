@@ -56,7 +56,7 @@
                                 <input type="number" step="1" name="quantity" value="1" class="input-text qty text">
                                 <input type="button" value="+" class="plus plus-btn">
                             </div> --}}
-                            <div class="cart-item-price">{{$data->quantity}} x ${{number_format($data->price,2)}}</div>
+                            <div class="cart-item-price">{{$data->quantity}} x &#2547;{{number_format($data->price,2)}}</div>
                         </div>
                         <a href="{{route('cart-delete',$data->id)}}" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
                         <button type="button" class="cart-close-btn"><a href="{{route('cart-delete',$data->id)}}" class="remove"><i class="uil uil-multiply"></i></a></button>
@@ -106,7 +106,7 @@
         </div> --}}
         <div class="main-total-cart">
             <h2>Total</h2>
-            <span>${{number_format(Helper::totalCartPrice(),2)}}</span>
+            <span>&#2547;{{number_format(Helper::totalCartPrice(),2)}}</span>
             {{-- <span>$35</span> --}}
         </div>
         <div class="checkout-cart">
@@ -147,11 +147,15 @@
                     <i class="uil uil-angle-down icon__14"></i>
                     <div class="menu dropdown_loc">
                         @foreach(Helper::getAllCategory() as $cat)
+                        
                         <div class="item channel_item">
+                            <a href="{{route('product-cat',$cat->slug)}}">
                             <i class="uil uil-apple-alt"></i>
                             {{-- <span class="iconify" data-icon="emojione-v1:pot-of-food"></span> --}}
                             {{$cat->title}}
+                        </a>
                         </div>
+                    
                         @endforeach
 
                     </div>
@@ -344,7 +348,7 @@
                                     </li> --}}
 
 
-                                    <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+                                    {{-- <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li> --}}
                             {{-- <li class="nav-item">
                                 <div class="ui icon top left dropdown nav__menu">
                                     <a class="nav-link" title="Blog">Blog <i class="uil uil-angle-down"></i></a>

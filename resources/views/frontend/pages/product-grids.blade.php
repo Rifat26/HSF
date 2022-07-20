@@ -21,20 +21,7 @@
     <!-- End Breadcrumbs -->
     
     <div class="wrapper">
-        <div class="gambo-Breadcrumb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Vegetables & Fruits</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="all-product-grid">
             <div class="container">
                 <div class="row">
@@ -43,7 +30,7 @@
                             <div class="product-left-title">
                                 <h2>Vegetables & Fruits</h2>
                             </div>
-                            <a href="#" class="filter-btn pull-bs-canvas-right">Filters</a>
+                            
                             <div class="product-sort">
                                 <div class="ui selection dropdown vchrt-dropdown">
                                     <input name="gender" type="hidden" value="default">
@@ -65,7 +52,7 @@
                 </div>
                 <div class="product-list-view">
                     <div class="row">
-                        {{-- {{$products}} --}}
+                        
                         @if(count($products)>0)
                         @foreach($products as $product)
                         <div class="col-lg-3 col-md-6">
@@ -90,14 +77,9 @@
                                     @php
                                         $after_discount=($product->price-($product->price*$product->discount)/100);
                                     @endphp
-                                    <div class="product-price">${{number_format($after_discount,2)}} <span>${{number_format($product->price,2)}}</span></div>
+                                    <div class="product-price">&#2547;{{number_format($after_discount,2)}} <span>&#2547;{{number_format($product->price,2)}}</span></div>
                                     <div class="qty-cart">
-                                        {{-- <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div> --}}
+                                        
                                         <a title="Add to cart" href="{{route('add-to-cart',$product->slug)}}">
                                             <span class="cart-icon">
                                                 <i class="uil uil-shopping-cart-alt"></i>
@@ -115,8 +97,7 @@
                         
                         <div class="col-md-12">
                             <div class="more-product-btn">
-                                {{-- <button class="show-more-btn hover-btn" onclick="window.location.href = '#';">Show
-                                    More</button> --}}
+                               
                                 {{$products->appends($_GET)->links()}}
                             </div>
                         </div>
