@@ -44,7 +44,7 @@
 							<div class="col-lg-4 col-md-4">
 								<div id="sync1" class="">
 									@php 
-										$photo=explode(',',$product_detail->photo);
+										$photo=explode(',',substr($product_detail->photo,16));
 										// dd($photo);
 									@endphp
 									@foreach($photo as $data)
@@ -125,12 +125,12 @@
 													</div>
 												</div>
 											</li>
-											<li>
+											{{-- <li>
 												<a href="{{route('add-to-wishlist',$product_detail->slug)}}" class="btn min">
 													<span class="like-icon save-icon" title="wishlist"></span>
 												</a>
 												
-											</li>
+											</li> --}}
 										</ul>
 										<ul class="ordr-crt-share">
 											<li>

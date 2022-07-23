@@ -543,11 +543,11 @@
                                     <h4 class="order_subtotal" data-price="{{Helper::totalCartPrice()}}">Cart Subtotal</h4>
                                     <span>${{number_format(Helper::totalCartPrice(),2)}}</span>
                                 </div>
-                                <div class="cart-total-dil pt-3">
+                                <div class="shipping">
                                     <h4>Delivery Charges</h4>
                                     @if(count(Helper::shipping())>0 && Helper::cartCount()>0)
                                     <div class="select_location">
-                                        <select name="shipping">
+                                        <select name="shipping" class="nice-select">
                                             <div class="ui inline dropdown loc-title">
                                                 <div class="text">
                                                     <option  value="">

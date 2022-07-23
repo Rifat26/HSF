@@ -19,7 +19,7 @@
         <div class="side-cart-items">
             @foreach(Helper::getAllProductFromCart() as $data)
                 @php
-                    $photo=explode(',',$data->product['photo']);
+                    $photo=explode(',',substr($data->product['photo'],16));
                 @endphp
                 <div class="cart-item">
                     <div class="cart-product-img">
@@ -133,7 +133,7 @@
                 @php
                     $settings=DB::table('settings')->get();
                 @endphp                    
-                <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{$data->logo}} @endforeach" alt="logo"></a>
+                <a href="{{route('home')}}"><img src="@foreach($settings as $data) {{substr($data->logo,16)}} @endforeach" alt="logo"></a>
             </div>
             <!--/ End Logo -->
 
@@ -185,7 +185,7 @@
                         <a class="offer-link"><i class="uil uil-envelope-alt"></i>@foreach($settings as $data) {{$data->email}} @endforeach</a>
                     </li>
 
-                    <li class="ui dropdown">
+                    {{-- <li class="ui dropdown">
                         <div class="select_location">
                             <div class="ui inline dropdown loc-title">
                                 <div class="text">
@@ -246,7 +246,7 @@
                              @endauth
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <li >
                         {{-- <a href="#" class="opts_account">

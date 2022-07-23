@@ -47,12 +47,12 @@
 										<div class="product-item mb-30">
 											<a href="{{route('product-detail',$product->slug)}}" class="product-img">
 												@php 
-													$photo=explode(',',$product->photo);
+													$photo=explode(',',substr($product->photo,16));
 												@endphp
 												<img src="{{$photo[0]}}" alt="{{$photo[0]}}">
 												<div class="product-absolute-options">
 													{{-- <span class="offer-badge-1">6% off</span> --}}
-													<a href="{{route('add-to-wishlist',$product->slug)}}" data-id="{{$product->id}}"><span class="like-icon" title="wishlist"></span></a>
+													{{-- <a href="{{route('add-to-wishlist',$product->slug)}}" data-id="{{$product->id}}"><span class="like-icon" title="wishlist"></span></a> --}}
 												</div>
 											</a>
 											<div class="product-text-dt">
@@ -380,7 +380,7 @@
 												<div class="product-gallery">
 													<div class="quickview-slider-active">
 														@php 
-															$photo=explode(',',$product->photo);
+															$photo=explode(',',substr($product->photo,16));
 														// dd($photo);
 														@endphp
 														@foreach($photo as $data)

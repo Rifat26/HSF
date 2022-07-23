@@ -59,7 +59,7 @@
                             <div class="product-item mb-30">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',$product->photo);
+                                        $photo=explode(',',substr($product->photo,16));
                                     @endphp
                                     <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                     <div class="product-absolute-options">

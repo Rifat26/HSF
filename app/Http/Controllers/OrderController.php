@@ -49,11 +49,13 @@ class OrderController extends Controller
             'last_name'=>'string|required',
             'address1'=>'string|required',
             'address2'=>'string|nullable',
+            // 'shipping_id'=>'required',
             'coupon'=>'nullable|numeric',
             'phone'=>'numeric|required',
             'post_code'=>'string|nullable',
             'email'=>'string|required'
         ]);
+        
         // return $request->all();
 
         if(empty(Cart::where('user_id',auth()->user()->id)->where('order_id',null)->first())){

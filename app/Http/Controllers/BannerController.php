@@ -108,6 +108,7 @@ class BannerController extends Controller
         // }
         // $data['slug']=$slug;
         // return $slug;
+        
         $status=$banner->fill($data)->save();
         if($status){
             request()->session()->flash('success','Banner successfully updated');

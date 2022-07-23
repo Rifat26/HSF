@@ -13,7 +13,7 @@
                                 <div class="offer-item">
                                     <div class="offer-item-img">
                                         <div class="gambo-overlay"></div>
-                                        <img src="{{$banner->photo}}" alt="">
+                                        <img src="{{substr($banner->photo,16)}}" alt="">
                                     </div>
                                     <div class="offer-text-dt">
                                         <div class="offer-top-text-banner">
@@ -57,7 +57,7 @@
                                             <a href="{{route('product-cat',$cat->slug)}}" class="category-item">
                                                 <div class="cate-img">
                                                     @if($cat->photo)
-                                                        <img src="{{$cat->photo}}" alt="{{$cat->photo}}">
+                                                        <img src="{{substr($cat->photo,16)}}" alt="{{$cat->photo}}">
                                                         @else
                                                         <img src="https://via.placeholder.com/600x370" alt="#">
                                                     @endif
@@ -97,14 +97,14 @@
                             <div class="product-item">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',$product->photo);
+                                        $photo=explode(',',substr($product->photo,16));
                                     // dd($photo);
                                     @endphp
                                     <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
                                     <div class="product-absolute-options">
                                         <span class="offer-badge-1">{{$product->discount}}% off</span>
                                         {{-- <a href="{{route('add-to-wishlist',$product->slug)}}"><span class="like-icon" title="wishlist"></span></a> --}}
-                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+                                        {{-- <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" ><span class="like-icon" title="wishlist"><span>Add to Wishlist</span></a> --}}
                                     </div>
                                 </a>
                                 <div class="product-text-dt">
@@ -162,7 +162,7 @@
                 </div> --}}
                 <div class="col-lg-4 col-md-6">
                     @php 
-                        $photo=explode(',',$data->photo);
+                        $photo=explode(',',substr($banner->photo,16));
                     @endphp
                     <a href="{{route('product-detail',$data->slug)}}" class="best-offer-item">
                         
@@ -216,7 +216,7 @@
                             <div class="product-item">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',$product->photo);
+                                        $photo=explode(',',substr($product->photo,16));
                                     // dd($photo);
                                     @endphp
                                     <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
@@ -226,7 +226,7 @@
                                     @endphp
                                     {{-- <span class="offer-badge-1">$______</span> --}}
                                         
-                                        <a href="{{route('add-to-wishlist',$product->slug)}}"><span class="like-icon" title="wishlist"></span>
+                                        {{-- <a href="{{route('add-to-wishlist',$product->slug)}}"><span class="like-icon" title="wishlist"></span> --}}
                                     </div>
                                 </a>
                                 <div class="product-text-dt">
@@ -449,7 +449,7 @@
                             <div class="product-item">
                                 <a href="{{route('add-to-cart',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',$product->photo);
+                                        $photo=explode(',',substr($product->photo,16));
                                         // dd($photo);
                                     @endphp
                                     <img src="{{$photo[0]}}" alt="{{$photo[0]}}">

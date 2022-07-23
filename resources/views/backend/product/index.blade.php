@@ -84,7 +84,7 @@
                     <td>
                         @if($product->photo)
                             @php 
-                              $photo=explode(',',$product->photo);
+                              $photo=explode(',',substr($product->photo,16));
                               // dd($photo);
                             @endphp
                             <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}">
