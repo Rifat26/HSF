@@ -28,25 +28,10 @@
                     <div class="col-lg-12">
                         <div class="product-top-dt">
                             <div class="product-left-title">
-                                <h2>Vegetables & Fruits</h2>
+                                <h2>Fast Food</h2>
                             </div>
                             
-                            <div class="product-sort">
-                                <div class="ui selection dropdown vchrt-dropdown">
-                                    <input name="gender" type="hidden" value="default">
-                                    <i class="dropdown icon d-icon"></i>
-                                    <div class="text">Popularity</div>
-                                    <div class="menu">
-                                        <div class="item" data-value="0">Popularity</div>
-                                        <div class="item" data-value="1">Price - Low to High</div>
-                                        <div class="item" data-value="2">Price - High to Low</div>
-                                        <div class="item" data-value="3">Alphabetical</div>
-                                        <div class="item" data-value="4">Saving - High to Low</div>
-                                        <div class="item" data-value="5">Saving - Low to High</div>
-                                        <div class="item" data-value="6">% Off - High to Low</div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -66,9 +51,7 @@
                                         @if($product->discount)
                                             <span class="offer-badge-1 price-dec">{{$product->discount}} % Off</span>
                                         @endif
-                                        <a title="Wishlist" href="{{route('add-to-wishlist',$product->slug)}}" class="wishlist" data-id="{{$product->id}}">
-                                            <span class="like-icon" title="wishlist"></span>
-                                        </a>
+                                        
                                     </div>
                                 </a>
                                 <div class="product-text-dt">

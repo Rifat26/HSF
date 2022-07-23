@@ -11,18 +11,7 @@
 						</li>
 					</ul>
 				</div>
-				{{-- <div class="col-md-6 col-sm-6">
-					<div class="social-links-footer">
-						<ul>
-							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-							<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-						</ul>
-					</div>
-				</div> --}}
+				
 			</div>
 		</div>
 	</div>
@@ -33,17 +22,11 @@
 					<div class="second-row-item">
 						<h4>Categories</h4>
 						<ul>
-							<li><a href="#">Fruits and Vegetables</a></li>
-							<li><a href="#">Grocery & Staples</a></li>
-							<li><a href="#">Dairy & Eggs</a></li>
+							<li><a href="#">Burger</a></li>
+							<li><a href="#">Pizza</a></li>
+							<li><a href="#">Fried Rice</a></li>
 							<li><a href="#">Beverages</a></li>
 							<li><a href="#">Snacks</a></li>
-							<li><a href="#">Home Care</a></li>
-							<li><a href="#">Noodles & Sauces</a></li>
-							<li><a href="#">Personal Care</a></li>
-							<li><a href="#">Pet Care</a></li>
-							<li><a href="#">Meat & Seafood</a></li>
-							<li><a href="#">Electronics</a></li>
 						</ul>
 					</div>
 				</div>
@@ -51,10 +34,10 @@
 					<div class="second-row-item">
 						<h4>Useful Links</h4>
 						<ul>
-							<li><a href="about_us.html">About US</a></li>
-							<li><a href="shop_grid.html">Products</a></li>
-							<li><a href="our_blog.html">Blog</a></li>
-							<li><a href="contact_us.html">Contact Us</a></li>
+							<li><a href={{route('home')}}>Home</a></li>
+							<li><a href={{route('product-grids')}}>Products</a></li>
+							<li><a href={{route('about-us')}}>About US</a></li>
+							<li><a href={{route('contact')}}>Contact Us</a></li>
 						</ul>
 					</div>
 				</div>
@@ -74,61 +57,11 @@
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
-					{{-- <div class="second-row-item-app">
-						<h4>Download App</h4>
-						<ul>
-							<li><a href="#"><img class="download-btn" src="images/download-1.svg" alt=""></a></li>
-							<li><a href="#"><img class="download-btn" src="images/download-2.svg" alt=""></a></li>
-						</ul>
-					</div> --}}
-					{{-- <div class="second-row-item-payment">
-						<h4>Payment Method</h4>
-						<div class="footer-payments">
-							<ul id="paypal-gateway" class="financial-institutes">
-								<li class="financial-institutes__logo">
-									<img alt="Visa" title="Visa" src="images/footer-icons/pyicon-6.svg">
-								</li>
-								<li class="financial-institutes__logo">
-									<img alt="Visa" title="Visa" src="images/footer-icons/pyicon-1.svg">
-								</li>
-								<li class="financial-institutes__logo">
-									<img alt="MasterCard" title="MasterCard" src="images/footer-icons/pyicon-2.svg">
-								</li>
-								<li class="financial-institutes__logo">
-									<img alt="American Express" title="American Express"
-										src="images/footer-icons/pyicon-3.svg">
-								</li>
-								<li class="financial-institutes__logo">
-									<img alt="Discover" title="Discover" src="images/footer-icons/pyicon-4.svg">
-								</li>
-							</ul>
-						</div>
-					</div> --}}
-					
 				</div>
 			</div>
 		</div>
 	</div>
-	{{-- <div class="footer-last-row">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="footer-bottom-links">
-						<ul>
-							<li><a href="about_us.html">About</a></li>
-							<li><a href="contact_us.html">Contact</a></li>
-							<li><a href="privacy_policy.html">Privacy Policy</a></li>
-							<li><a href="term_and_conditions.html">Term & Conditions</a></li>
-							<li><a href="refund_and_return_policy.html">Refund & Return Policy</a></li>
-						</ul>
-					</div>
-					<div class="copyright-text">
-						<i class="uil uil-copyright"></i>Copyright 2020 <b>Gambolthemes</b> . All rights reserved
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> --}}
+	
 </footer>
  
 	<!-- Jquery -->

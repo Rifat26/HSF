@@ -26,16 +26,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
-                        {{-- <div class="default_tabs">
-                            <nav>
-                                <div class="nav nav-tabs tab_default  justify-content-center">
-                                    <a class="nav-item nav-link active" href="about_us.html">About</a>
-                                    <a class="nav-item nav-link" href="our_blog.html">Blog</a>
-                                    <a class="nav-item nav-link" href="career.html">Careers</a>
-                                    <a class="nav-item nav-link" href="press.html">Press</a>
-                                </div>
-                            </nav>
-                        </div> --}}
+                        
                         <div class="title129">
                             <h2>About Us</h2>
                         </div>

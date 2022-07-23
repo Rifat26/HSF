@@ -155,20 +155,16 @@
                 </div>
             @if($featured)
                 @foreach($featured as $data)
-                {{-- <div class="col-lg-4 col-md-6">
-                    <a href="#" class="best-offer-item">
-                        <img src="assets/images/best-offers/offer-1.jpg" alt="">
-                    </a>
-                </div> --}}
+                
                 <div class="col-lg-4 col-md-6">
                     @php 
-                        $photo=explode(',',substr($banner->photo,16));
+                        $photo=explode(',',substr($product->photo,16));
                     @endphp
                     <a href="{{route('product-detail',$data->slug)}}" class="best-offer-item">
                         
                         <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
                         <div class="content">
-                            <p>{{$data->cat_info['title']}}</p>
+                            {{-- <p>{{$data->cat_info['title']}}</p> --}}
                             <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
                             
                         </div>
@@ -177,20 +173,7 @@
                 </div>
                 @endforeach
             @endif
-                {{-- <div class="col-lg-4 col-md-6">
-                    <a href="#" class="best-offer-item offr-none">
-                        <img src="assets/images/best-offers/offer-3.jpg" alt="">
-                        <div class="cmtk_dt">
-                            <div class="product_countdown-timer offer-counter-text" data-countdown="2021/01/06">
-                            </div>
-                        </div>
-                    </a>
-                </div> --}}
-                {{-- <div class="col-md-12">
-                    <a href="#" class="code-offer-item">
-                        <img src="assets/images/best-offers/offer-4.jpg" alt="">
-                    </a>
-                </div> --}}
+                
             </div>
         </div>
     </div>
@@ -203,7 +186,7 @@
                     <div class="main-title-tt">
                         <div class="main-title-left">
                             <span>For You</span>
-                            <h2>Fresh Vegetables & Fruits</h2>
+                            <h2>Fresh Food</h2>
                         </div>
                         <a href="#" class="see-more-btn">See All</a>
                     </div>
@@ -244,181 +227,7 @@
                         </div>
                         @endif
                     @endforeach
-                        {{-- <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-12.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">2% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$10 <span>$13</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-13.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">5% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$5 <span>$8</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-1.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">3% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$15 <span>$20</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-5.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">2% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$9 <span>$10</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-6.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">2% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$7 <span>$8</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-14.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">1% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$6.95 <span>$7</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-3.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">3% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$8 <span>$10</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
+                        
                     </div>
                 </div>
             </div>
@@ -463,193 +272,14 @@
                                     <h4>{{$product->title}}</h4>
                                     <div class="product-price">&#2547;{{number_format($product->discount,2)}}</div>
                                     <div class="qty-cart">
-                                        {{-- <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div> --}}
+                                        
                                         <a href="{{route('add-to-cart',$product->slug)}}"><span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        {{-- <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-9.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$10</div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-15.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">5% off</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$5</div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-11.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$15 <span>$16</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-14.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$9</div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-2.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$7</div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-5.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$6.95</div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <a href="single_product_view.html" class="product-img">
-                                    <img src="assets/images/product/img-6.jpg" alt="">
-                                    <div class="product-absolute-options">
-                                        <span class="offer-badge-1">New</span>
-                                        <span class="like-icon" title="wishlist"></span>
-                                    </div>
-                                </a>
-                                <div class="product-text-dt">
-                                    <p>Available<span>(In Stock)</span></p>
-                                    <h4>Product Title Here</h4>
-                                    <div class="product-price">$8 <span>8.75</span></div>
-                                    <div class="qty-cart">
-                                        <div class="quantity buttons_added">
-                                            <input type="button" value="-" class="minus minus-btn">
-                                            <input type="number" step="1" name="quantity" value="1"
-                                                class="input-text qty text">
-                                            <input type="button" value="+" class="plus plus-btn">
-                                        </div>
-                                        <span class="cart-icon"><i class="uil uil-shopping-cart-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
+                       
                     </div>
                 </div>
             </div>
