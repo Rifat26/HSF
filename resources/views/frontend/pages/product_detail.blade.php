@@ -43,28 +43,8 @@
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div id="sync1" class="">
-									@php 
-										$photo=explode(',',substr($product_detail->photo,16));
-										// dd($photo);
-									@endphp
-									@foreach($photo as $data)
-										<div class="item" data-thumb="{{$data}}" rel="adjustX:10, adjustY:">
-											<img src="{{$data}}" alt="{{$data}}" height="450" width="390">
-										</div>
-									@endforeach
+									<img src="{{asset('storage/photos/1/Products')}}/{{substr($product_detail['photo'],18)}}"  height="450" width="390">
 								</div>
-								<!-- <div id="sync2" class="owl-carousel owl-theme">
-									@php 
-										$photo=explode(',',$product_detail->photo);
-										// dd($photo);
-									@endphp
-									@foreach($photo as $data)
-										<div class="item" data-thumb="{{$data}}" rel="adjustX:10, adjustY:">
-											<img src="{{$data}}" alt="{{$data}}">
-										</div>
-									@endforeach
-									
-								</div> -->
 							</div>
 							<div class="col-lg-8 col-md-8">
 								<div class="product-dt-right">

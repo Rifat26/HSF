@@ -44,9 +44,9 @@
                             <div class="product-item mb-30">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',substr($product->photo,16));
+                                        // $photo=explode(',',substr($product->photo,16));
                                     @endphp
-                                    <img class="default-img" src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                    <img class="default-img" src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}">
                                     <div class="product-absolute-options">
                                         @if($product->discount)
                                             <span class="offer-badge-1 price-dec">{{$product->discount}} % Off</span>

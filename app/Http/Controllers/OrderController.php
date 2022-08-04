@@ -95,6 +95,7 @@ class OrderController extends Controller
         $order_data['order_number']='ORD-'.strtoupper(Str::random(10));
         $order_data['user_id']=$request->user()->id;
         $order_data['shipping_id']=$request->shipping;
+        // dd($request->shipping);
         $shipping=Shipping::where('id',$order_data['shipping_id'])->pluck('price');
         // return session('coupon')['value'];
         $order_data['sub_total']=Helper::totalCartPrice();

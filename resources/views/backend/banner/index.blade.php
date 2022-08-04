@@ -44,7 +44,8 @@
                     <td>{{$banner->slug}}</td>
                     <td>
                         @if($banner->photo)
-                            <img src="{{substr($banner->photo,16)}}" class="img-fluid zoom" style="max-width:80px">
+                            {{-- <img src="{{substr($banner->photo,16)}}" class="img-fluid zoom" style="max-width:80px"> --}}
+                            <img src="{{asset('storage/photos/1/Banner')}}/{{substr($banner->photo,18)}}" class="img-fluid zoom" style="max-width:80px">
                         @else
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid zoom" style="max-width:100%" alt="avatar.png">
                         @endif

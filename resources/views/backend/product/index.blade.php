@@ -61,13 +61,16 @@
                 <tr>
                     <td>{{$product->id}}</td>
                     <td>{{$product->title}}</td>
-                    <td>{{$product->cat_info['title']}}
+                    @if($product->cat_info)
+                    <td>{{$product->cat_info->title}}
+                      
                       <sub>
                         @foreach($sub_cat_info as $data)
                           {{$data->title}}
                         @endforeach
                       </sub>
                     </td>
+                    @endif
                     <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
                     <td>Rs. {{$product->price}} /-</td>
                     <td>  {{$product->discount}}% OFF</td>
@@ -84,10 +87,10 @@
                     <td>
                         @if($product->photo)
                             @php 
-                              $photo=explode(',',substr($product->photo,16));
-                              // dd($photo);
+                              // $photo=explode(',', asset('storage/photos/1/Product')/ substr($product->photo,18));
+                              //  dd($product->photo);
                             @endphp
-                            <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$product->photo}}">
+                            <img src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}" class="img-fluid zoom" style="max-width:80px">
                         @else
                             <img src="{{asset('backend/img/thumbnail-default.jpg')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
                         @endif

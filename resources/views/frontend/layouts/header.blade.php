@@ -10,11 +10,11 @@
         <div class="side-cart-items">
             @foreach(Helper::getAllProductFromCart() as $data)
                 @php
-                    $photo=explode(',',substr($data->product['photo'],16));
+                    // $photo=explode(',',substr($data->product['photo'],16));
                 @endphp
                 <div class="cart-item">
                     <div class="cart-product-img">
-                        <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                        <img src="{{asset('storage/photos/1/Products')}}/{{substr($data->product['photo'],18)}}">
                         
                     </div>
                     <div class="cart-text">

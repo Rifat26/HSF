@@ -13,7 +13,8 @@
                                 <div class="offer-item">
                                     <div class="offer-item-img">
                                         <div class="gambo-overlay"></div>
-                                        <img src="{{substr($banner->photo,16)}}" alt="">
+                                        {{-- <img src="{{substr($banner->photo,16)}}" alt=""> --}}
+                                        <img src="{{asset('storage/photos/1/Banner')}}/{{substr($banner->photo,18)}}" alt="">
                                     </div>
                                     <div class="offer-text-dt">
                                         <div class="offer-top-text-banner">
@@ -57,7 +58,7 @@
                                             <a href="{{route('product-cat',$cat->slug)}}" class="category-item">
                                                 <div class="cate-img">
                                                     @if($cat->photo)
-                                                        <img src="{{substr($cat->photo,16)}}" alt="{{$cat->photo}}">
+                                                        <img src="{{asset('storage/photos/1/Category')}}/{{substr($cat->photo,18)}}" alt="{{$cat->photo}}">
                                                         @else
                                                         <img src="https://via.placeholder.com/600x370" alt="#">
                                                     @endif
@@ -97,10 +98,10 @@
                             <div class="product-item">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',substr($product->photo,16));
+                                        // $photo=explode(',',substr($product->photo,18));
                                     // dd($photo);
                                     @endphp
-                                    <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                    <img src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}">
                                     <div class="product-absolute-options">
                                         <span class="offer-badge-1">{{$product->discount}}% off</span>
                                         {{-- <a href="{{route('add-to-wishlist',$product->slug)}}"><span class="like-icon" title="wishlist"></span></a> --}}
@@ -158,11 +159,11 @@
                 
                 <div class="col-lg-4 col-md-6">
                     @php 
-                        $photo=explode(',',substr($product->photo,16));
+                        // $photo=explode(',',substr($product->photo,16));
                     @endphp
                     <a href="{{route('product-detail',$data->slug)}}" class="best-offer-item">
                         
-                        <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                        <img src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}">
                         <div class="content">
                             {{-- <p>{{$data->cat_info['title']}}</p> --}}
                             <h3>{{$data->title}} <br>Up to<span> {{$data->discount}}%</span></h3>
@@ -194,26 +195,24 @@
                 <div class="col-md-12">
                     <div class="owl-carousel featured-slider owl-theme">
                         @foreach($product_lists as $product)
-                        @if($product->condition=='hot')
+                        {{-- @if($product->condition=='hot') --}}
                         <div class="item">
                             <div class="product-item">
                                 <a href="{{route('product-detail',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',substr($product->photo,16));
+                                        // $photo=explode(',',substr($product->photo,16));
                                     // dd($photo);
                                     @endphp
-                                    <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                    <img src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}">
                                     <div class="product-absolute-options">
                                     @php 
                                     $after_discount=($product->price-($product->price*$product->discount)/100)
                                     @endphp
-                                    {{-- <span class="offer-badge-1">$______</span> --}}
-                                        
-                                        {{-- <a href="{{route('add-to-wishlist',$product->slug)}}"><span class="like-icon" title="wishlist"></span> --}}
+                                    
                                     </div>
                                 </a>
                                 <div class="product-text-dt">
-                                    {{-- <p>{{route('product-detail',$product->slug)}}</p> --}}
+                                    
                                     <h4>{{$product->title}}</h4>
                                     <div class="product-price">&#2547;{{number_format($after_discount,2)}}<span>&#2547;{{number_format($product->price,2)}}</span></div>
                                     
@@ -225,14 +224,14 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
+                        {{-- @endif --}}
                     @endforeach
                         
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
 
 
     <div class="section145">
@@ -258,10 +257,10 @@
                             <div class="product-item">
                                 <a href="{{route('add-to-cart',$product->slug)}}" class="product-img">
                                     @php 
-                                        $photo=explode(',',substr($product->photo,16));
+                                        // $photo=explode(',',substr($product->photo,16));
                                         // dd($photo);
                                     @endphp
-                                    <img src="{{$photo[0]}}" alt="{{$photo[0]}}">
+                                    <img src="{{asset('storage/photos/1/Products')}}/{{ substr($product->photo,18)}}">
                                     <div class="product-absolute-options">
                                         <span class="offer-badge-1">New</span>
                                         {{-- <span class="like-icon" title="wishlist"></span> --}}
