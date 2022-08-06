@@ -337,6 +337,8 @@
 
 @endsection
 
+
+
 {{-- @push('styles')
 	<style>
 		/* Rating */
