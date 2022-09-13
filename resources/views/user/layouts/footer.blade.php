@@ -2,9 +2,9 @@
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
-          <div class="copyright text-center my-auto">
+          {{-- <div class="copyright text-center my-auto">
             <span>Copyright &copy; <a href="https://github.com/Prajwal100" target="_blank">Home Food Service</a> 2022</span>
-          </div>
+          </div> --}}
         </div>
       </footer>
       <!-- End of Footer -->

@@ -17,6 +17,46 @@
 @section('title','Home Food Service || PRODUCT DETAIL')
 @section('main-content')
 
+<style>
+	
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+
+</style>
+
 <!-- Breadcrumbs -->
 		<div class="breadcrumb">
 			<div class="container">
@@ -117,11 +157,20 @@
 											</li>
 											<li>
 												<div class="pdp-group-dt">
-													<div class="pdp-icon"><i class="uil uil-cloud-redo"></i></div>
+													{{-- <div class="pdp-icon"><i class="uil uil-cloud-redo"></i></div> --}}
 													<div class="pdp-text-dt">
-														<span>Easy Returns & Refunds</span>
-														<p>Return products at doorstep and get refund in seconds.
-														</p>
+														{{-- <span>Easy Returns & Refunds</span>
+														<p>Return products at doorstep and get refund in seconds. 
+
+														</p>--}}
+														@php
+															$rate=ceil($product_detail->getReview->avg('rate'))	
+																													
+														@endphp
+														<? if (!empty($rate)) { ?>
+															<span>Rate:  <?=  $rate   ?></span>
+														<? } ?> 
+														{{-- <a href="#" class="total-review">({{$product_detail['getReview']->count()}}) Review</a> --}}
 													</div>
 												</div>
 											</li>
@@ -155,9 +204,63 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+		{{-- </div>
+	</div> --}}
 <!--/ End Shop Single -->
+                    @auth
+						<form class="form" method="post" action="{{route('review.store',$product_detail->slug)}}">
+							@csrf
+							<div class="row">
+								<div class="col-lg-12 col-12">
+									<div class="rating_box">
+										<div class="star-rating">
+											<div class="star-rating__wrap ">
+												<div class="rate" style="margin-top: 10px;">
+													<input type="radio" id="star5" name="rate" value="5" />
+													<label for="star5" title="text">5 stars</label>
+													<input type="radio" id="star4" name="rate" value="4" />
+													<label for="star4" title="text">4 stars</label>
+													<input type="radio" id="star3" name="rate" value="3" />
+													<label for="star3" title="text">3 stars</label>
+													<input type="radio" id="star2" name="rate" value="2" />
+													<label for="star2" title="text">2 stars</label>
+													<input type="radio" id="star1" name="rate" value="1" />
+													<label for="star1" title="text">1 star</label>
+												</div>
+											@error('rate')
+												<span class="text-danger">{{$message}}</span>
+											@enderror 
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-12 col-12">
+									<div class="form-group">
+										<label>Write a review</label><br>
+										<textarea name="review" rows="12" cols="150" placeholder="" ></textarea>
+									</div>
+								</div>
+								<div class="col-lg-12 col-12">
+									<div class="form-group button5">	
+										{{-- <button type="submit" class="btn">Submit</button> --}}
+										<button type="submit" class="add-cart-btn hover-btn">
+											
+											Submit
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						@else 
+						<p class="text-center p-5">
+							You need to <a href="{{route('login.form')}}" style="color:rgb(54, 54, 204)">Login</a> OR <a style="color:blue" href="{{route('register.form')}}">Register</a>
+
+						</p>
+						<!--/ End Form -->
+					@endauth
+			</div>
+		</div>
+							
 
 <!-- Start Most Popular -->
 <div class="product-area most-popular related-product section">
@@ -339,10 +442,17 @@
 
 
 
-{{-- @push('styles')
+@push('styles')
 	<style>
+		.rating_star{
+			list-style: none;
+			display: inline;
+			float: left;
+			margin: 2px;
+			padding: 2px;
+		}
 		/* Rating */
-		.rating_box {
+		/* .rating_box {
 		display: inline-flex;
 		}
 
@@ -384,10 +494,10 @@
 		.star-rating__ico:hover ~ .star-rating__ico:before,
 		.star-rating__input:checked ~ .star-rating__ico:before {
 		content: "\F005";
-		}
+		} */
 
-	</style>
-@endpush  --}}
+</style>
+@endpush 
 
  @push('scripts')
  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -423,5 +533,13 @@
                 }
             })
         });
+
+		$(':radio').change(
+  function(){
+    $('.choice').text( this.value + ' stars' );
+  } 
+)
     </script> --}}
+
+
 @endpush 

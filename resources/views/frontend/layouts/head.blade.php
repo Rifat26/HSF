@@ -13,11 +13,11 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.css')}}">
 <!-- Magnific Popup -->
-<link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.min.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/magnific-popup.min.css')}}"> --}}
 <!-- Font Awesome -->
 <link rel="stylesheet" href="{{asset('frontend/css/font-awesome.css')}}">
 <!-- Fancybox -->
-<link rel="stylesheet" href="{{asset('frontend/css/jquery.fancybox.min.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('frontend/css/jquery.fancybox.min.css')}}">
 <!-- Themify Icons -->
 <link rel="stylesheet" href="{{asset('frontend/css/themify-icons.css')}}">
 <!-- Nice Select CSS -->
@@ -69,6 +69,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href='{{asset('assets/vendor/unicons-2.0.1/css/unicons.css')}}' rel='stylesheet'>
 <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+
 <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/night-mode.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/step-wizard.css')}}" rel="stylesheet">
